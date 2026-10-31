@@ -1,0 +1,1 @@
+export function calculateScore({correct,elapsedMinutes,hintsUsed,viewedCount,totalEvidence}){const time=Math.max(0,Math.round(200*(1-Math.min(elapsedMinutes,30)/30)));const coverage=Math.min(200,Math.round(200*viewedCount/Math.max(1,totalEvidence)));return Math.max(0,Math.min(1000,(correct?600:0)+time+coverage-50*hintsUsed));}

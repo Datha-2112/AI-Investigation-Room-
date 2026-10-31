@@ -1,0 +1,2 @@
+import jwt from 'jsonwebtoken';import {env} from '../config/env.js';import {AppError} from './errors.js';
+export function requireAuth(req,_res,next){try{if(!req.cookies?.session)throw Error();req.user=jwt.verify(req.cookies.session,env.JWT_SECRET);next();}catch{next(new AppError(401,'UNAUTHORIZED','Please log in to continue.'));}}

@@ -1,0 +1,1 @@
+import {describe,it,expect} from 'vitest';describe('application package',()=>{it('has a test runner configured',()=>expect(true).toBe(true));});

@@ -1,0 +1,1 @@
+import 'dotenv/config';import {createBlueprint} from './blueprint.js';const blueprint=await createBlueprint({scenario:process.env.SCENARIO||'A sealed envelope vanished from the town library during a rainy evening event.',difficulty:process.env.DIFFICULTY||'Medium',tone:process.env.TONE||'Noir'});console.log(JSON.stringify(blueprint,null,2));

@@ -1,0 +1,3 @@
+import mongoose from 'mongoose';
+const schema=new mongoose.Schema({case:{type:mongoose.Schema.Types.ObjectId,ref:'Case',required:true,index:true},type:{type:String,enum:['chat','image','cctv','document'],required:true},title:{type:String,required:true},caption:String,content:mongoose.Schema.Types.Mixed,mediaStatus:{type:String,enum:['pending','ready','failed'],default:'ready'},clueRefs:{type:[String],select:false},order:{type:Number,required:true}},{timestamps:true});
+export default mongoose.model('Evidence',schema);

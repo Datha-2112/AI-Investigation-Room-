@@ -1,0 +1,3 @@
+import mongoose from 'mongoose';
+const schema=new mongoose.Schema({case:{type:mongoose.Schema.Types.ObjectId,ref:'Case',required:true},user:{type:mongoose.Schema.Types.ObjectId,ref:'User',required:true},startedAt:{type:Date,default:Date.now},submittedAt:Date,viewedEvidence:[{type:mongoose.Schema.Types.ObjectId,ref:'Evidence'}],pinnedEvidence:[{type:mongoose.Schema.Types.ObjectId,ref:'Evidence'}],notes:{type:String,maxlength:5000,default:''},hintsUsed:{type:Number,min:0,max:3,default:0},accusedSuspectId:String,reasoning:{type:String,maxlength:1000},result:{type:String,enum:['pending','correct','incorrect'],default:'pending'},score:{type:Number,default:0}},{timestamps:true});schema.index({user:1,case:1});
+export default mongoose.model('Attempt',schema);
